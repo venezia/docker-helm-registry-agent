@@ -3,7 +3,7 @@ MAINTAINER Michael Venezia <mvenezia@gmail.com>
 
 ENV HELM_HOME=/etc/helm
 ENV HELM_PLUGIN=/etc/helm/plugins
-ENV HELM_RELEASE=v2.5.0
+ENV HELM_RELEASE=v2.5.1
 ENV APP_REGISTRY_PLUGIN_RELEASE=v0.5.0
 ENV APP_REGISTRY_PLUGIN_URL=https://github.com/app-registry/appr/releases/download/${APP_REGISTRY_PLUGIN_RELEASE}/appr-linux-x64
 ENV APP_REGISTRY_PLUGIN_YAML_URL=https://raw.githubusercontent.com/app-registry/appr/${APP_REGISTRY_PLUGIN_RELEASE}/appr/commands/plugins/helm/plugin.yaml

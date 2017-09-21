@@ -19,7 +19,7 @@ ENV APP_REGISTRY_URL=https://github.com/app-registry/appr/releases/download/${AP
 
 RUN apk update && apk add wget openssl git curl bash gettext && \
     mkdir -p /etc/helm/plugins/appr && ln -s /etc/helm ~/.helm && \
-    wget https://storage.googleapis.com/kubernetes-helm/helm-${HELM_RELEASE}-linux-amd64.tar.gz -O - | tar -zxv linux-amd64/helm && \
+    wget ${HELM_RELEASE_URL} -O - | tar -zxv linux-amd64/helm && \
     mv linux-amd64/helm /usr/bin/ && rm -rf linux-amd64 && \
     cd ${HELM_PLUGIN} && wget ${APP_REGISTRY_PLUGIN_URL} -O - | tar -zxv && \
     cd registry && wget ${APP_REGISTRY_URL} && mv appr-alpine-x64 appr && chmod a+x appr && \

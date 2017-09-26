@@ -13,7 +13,7 @@ ENV APP_REGISTRY_PLUGIN_URL=https://github.com/app-registry/appr-helm-plugin/rel
 
 # This is the actual appr binary
 # See https://github.com/app-registry/appr/releases
-ENV APP_REGISTRY_RELEASE=v0.7.3
+ENV APP_REGISTRY_RELEASE=v0.7.4
 ENV APP_REGISTRY_URL=https://github.com/app-registry/appr/releases/download/${APP_REGISTRY_RELEASE}/appr-alpine-x64
 
 

@@ -9,6 +9,7 @@ before_script:
 
 variables:
   DOCKER_HOST: tcp://localhost:2375  
+  DOCKER_DRIVER: overlay2
 
 build-branch:
   stage: build
@@ -31,3 +32,20 @@ build-tag:
   - docker build -t $IMAGE_URI .
   - docker push $IMAGE_URI
   
+deploy:tagged-image:
+  stage: deploy
+  services:
+    - docker:dind
+  image: docker:latest
+  variables:
+    DOCKER_HOST: tcp://localhost:2375
+    IMAGE_URI: $CI_REGISTRY_IMAGE:$CI_COMMIT_TAG
+  only:
+    - tags
+  before_script:
+    - docker login -u $PUBLISH_USERNAME -p $PUBLISH_PASSWORD $PUBLISH_REGISTRY
+  script:
+    - docker pull $IMAGE_URI
+    - docker tag $IMAGE_URI ${PUBLISH_REGISTRY}/${PUBLISH_IMAGE}:${CI_COMMIT_TAG}
+    - docker push ${PUBLISH_REGISTRY}/${PUBLISH_IMAGE}:${CI_COMMIT_TAG}
+

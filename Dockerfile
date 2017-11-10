@@ -3,7 +3,7 @@ MAINTAINER Michael Venezia <mvenezia@gmail.com>
 
 ENV HELM_HOME=/etc/helm
 ENV HELM_PLUGIN=/etc/helm/plugins
-ENV HELM_RELEASE=v2.6.1
+ENV HELM_RELEASE=v2.7.0
 ENV HELM_RELEASE_URL=https://storage.googleapis.com/kubernetes-helm/helm-${HELM_RELEASE}-linux-amd64.tar.gz
 
 # Note that the plugin is _not_ the same thing as the binary
